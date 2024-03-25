@@ -44,7 +44,7 @@ class _AddNoteFormState extends State<AddNoteForm> {
           const SizedBox(height: 32,),
           BlocBuilder<AddNoteCubit,AddNoteStates>(
             builder: (context, state) {
-              var dateTime=DateFormat('dd-mm-yyyy').format(DateTime.now());
+              var dateTime=DateFormat('dd-MM-yyyy').format(DateTime.now());
               return CustomButton(
                 isLoading: state is AddNoteLoading ? true:false,
                 onTap: () {
