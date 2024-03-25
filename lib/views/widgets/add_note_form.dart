@@ -49,7 +49,7 @@ class _AddNoteFormState extends State<AddNoteForm> {
                   if(formKey.currentState!.validate())
                   {
                     formKey.currentState!.save();
-                    var noteModel=NoteModel(title: title!, subTitle: subTitle!, date: DateTime.now().toString(), color: Colors.black.value);
+                    var noteModel=NoteModel(title: title!, subTitle: subTitle!, date: DateTime.now().toString(), color: Colors.orange.value);
                     AddNoteCubit.get(context).addNote(noteModel);
                   }else{
                     autoValidateMode=AutovalidateMode.always;
