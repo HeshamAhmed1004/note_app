@@ -48,7 +48,9 @@ final NoteModel note;
                   color: Colors.black,
 
                 ),
-                onPressed: () {},
+                onPressed: () {
+                  note.delete();
+                },
               ),
             ),
             Padding(
