@@ -1,6 +1,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:note_app/cubit/notes_cubit.dart';
 import 'package:note_app/models/note_model.dart';
 import 'package:note_app/views/edit_note_view.dart';
 
@@ -11,10 +12,10 @@ final NoteModel note;
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        Navigator.push(context, MaterialPageRoute(builder: (context) => EditNoteView(),));
+        Navigator.push(context, MaterialPageRoute(builder: (context) => const EditNoteView(),));
       },
       child: Container(
-        padding:EdgeInsets.only(top: 14,bottom: 14,left: 14),
+        padding:const EdgeInsets.only(top: 14,bottom: 14,left: 14),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(16),
           color: Color(note.color),
@@ -25,7 +26,7 @@ final NoteModel note;
             ListTile(
               title: Text(
                 note.title,
-                style: TextStyle(
+                style: const TextStyle(
                     color: Colors.black,
                     fontSize: 22,
                     fontWeight: FontWeight.bold
@@ -42,7 +43,7 @@ final NoteModel note;
                 ),
               ),
               trailing: IconButton(
-                icon: Icon(
+                icon: const Icon(
                   FontAwesomeIcons.trash,
                   size: 24,
                   color: Colors.black,
@@ -50,6 +51,7 @@ final NoteModel note;
                 ),
                 onPressed: () {
                   note.delete();
+                  NotesCubit.get(context).fetchAllNotes();
                 },
               ),
             ),

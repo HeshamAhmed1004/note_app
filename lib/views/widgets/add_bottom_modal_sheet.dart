@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:note_app/cubit/add_note_cubit.dart';
 import 'package:note_app/cubit/add_note_state.dart';
+import 'package:note_app/cubit/notes_cubit.dart';
 import 'package:note_app/views/widgets/add_note_form.dart';
 class AddBottomModalSheet extends StatelessWidget {
   const AddBottomModalSheet({super.key});
@@ -19,6 +20,7 @@ class AddBottomModalSheet extends StatelessWidget {
             }
           if(state is AddNoteSuccess)
             {
+              NotesCubit.get(context).fetchAllNotes();
               Navigator.pop(context);
             }
         },
